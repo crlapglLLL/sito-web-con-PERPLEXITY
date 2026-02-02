@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>ThisIsNotASpamTrustMeBaby</title>
 
+
+  
   <style>
     @import url('https://fonts.cdnfonts.com/css/gidole');
 
@@ -15,17 +17,8 @@
       margin: 0;
       padding: 80px 20px;
       min-height: 100vh;
+      overflow-x: hidden;
     }
-    body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #00bcd4; /* o qualsiasi altro colore */
-  z-index: -1;
-}
 
     h1 {
       font-size: 30px;
@@ -42,16 +35,21 @@
       color: white;
       border: none;
       border-radius: 40px;
-      transition: opacity 0.3s;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
       display: inline-block;
     }
 
     button:active {
       opacity: 0.5;
+      transform: translateY(2px);
+      box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
     }
 
     button:hover {
       opacity: 0.9;
+      box-shadow: 0 6px 20px rgba(0, 188, 212, 0.6);
+      transform: translateY(-2px);
     }
 
     img {
@@ -65,13 +63,67 @@
       max-width: 800px;
       margin: 0 auto;
     }
+     /* Animazione fade-in quando appaiono le schermate */
+.fadeIn {
+  animation: fadeInAnimation 0.8s ease-in;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Particelle di sfondo */
+.particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Coriandoli per i finali */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  animation: fall 3s linear;
+  z-index: 999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
   </style>
 </head>
 
 <body>
 
   <!-- SCHERMATA INIZIALE -->
-  <div id="schermata-iniziale">
+  <div id="schermata-iniziale" class="fadeIn" class="fadeIn">
     <h1>Ciao, so che non mi conosci, sono qui per chiederti... vuoi essere la mia Valentina?</h1>
     <img src="SCONOSCIUTO.png" alt="Immagine iniziale">
     <br>
@@ -80,7 +132,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 1 -->
-  <div id="risultato-1" style="display: none;">
+  <div id="risultato-1" style="display: none;" class="fadeIn">
     <h1>Wow... ok... non me lo aspettavo, non mi sono preparato a questo! Beh allora...</h1>
     <img src="ERRORE.png" alt="Immagine scelta 1">
     <br>
@@ -89,7 +141,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 2 -->
-  <div id="risultato-2" style="display: none;">
+  <div id="risultato-2" style="display: none;" class="fadeIn">
     <h1>Hai perfettamente ragione ad avere dubbi... quindi ti svelerò chi sono</h1>
     <img src="MIRIVELO.png" alt="Immagine scelta 2">
     <br>
@@ -98,7 +150,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 1A -->
-  <div id="risultato-1a" style="display: none;">
+  <div id="risultato-1a" style="display: none;" class="fadeIn">
     <h1>oddio si... certo.. e se ti dicessi che sono sotto casa tua??</h1>
     <img src="DAVVERO.png" alt="Immagine scelta 1a">
     <br>
@@ -107,7 +159,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 1B -->
-  <div id="risultato-1b" style="display: none;">
+  <div id="risultato-1b" style="display: none;" class="fadeIn">
     <h1>ma...</h1>
     <img src="MORTO.png" alt="Immagine scelta 1b">
     <br>
@@ -116,7 +168,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 2A -->
-  <div id="risultato-2a" style="display: none;">
+  <div id="risultato-2a" style="display: none;" class="fadeIn">
     <h1>TAA DAAAN... ero io, il tuo scricciolooo</h1>
     <img src="IO.png" alt="Immagine scelta 2a">
     <br>
@@ -125,7 +177,7 @@
   </div>
 
   <!-- RISULTATO PULSANTE 2B -->
-  <div id="risultato-2b" style="display: none;">
+  <div id="risultato-2b" style="display: none;" class="fadeIn">
     <h1>nooooo... ora mi butto...</h1>
     <img src="MIBUTTO.png" alt="Immagine scelta 2b">
     <br>
@@ -134,18 +186,18 @@
   </div>
 
   <!-- RISULTATI FINALI LIVELLO 3 -->
-  <div id="risultato-1a1" style="display: none;">
+  <div id="risultato-1a1" style="display: none;" class="fadeIn">
     <h1>FORSDE SI...se fossi uno pazzo sconosciuto, ma hey.. SONO IOOOOO IL TUO SCRICCIOLOOOO 💕</h1>
     <img src="MINISO.jpg" alt="Finale 1a1">
   </div>
 
-  <div id="risultato-1a2" style="display: none;">
+  <div id="risultato-1a2" style="display: none;" class="fadeIn">
     <h1>Eh no, purtroppo, ma vorrei tanto, arriverà il nostro futuro insieme nella nostra casetta</h1>
     <img src="CASA.png" alt="Finale 1a2">
   </div>
 
-  <div id="risultato-1b1" style="display: none;">
-    <h1>hey... non è divertente, dammi subito un bacino perchè mi hai fastto prendere collera così...</h1>
+  <div id="risultato-1b1" style="display: none;" class="fadeIn">
+    <h1>hey... non è divertente, dammi subito un bacino perchè mi hai fatto prendere collera così...</h1>
     <img src="MINACCIA.png" alt="Finale 1b1">
   </div>
 
@@ -166,7 +218,7 @@
 
   <div id="risultato-2b1" style="display: none;">
     <h1> Beh vuol dire che mi ha riconsciuta... Ciao Ammoree Mijiooo ❤️</h1>
-    <img src="BACIOSPA(1).png" alt="Finale 2b1">
+    <img src="BACIOSPA (1).png" alt="Finale 2b1">
   </div>
 
   <div id="risultato-2b2" style="display: none;">
@@ -182,8 +234,57 @@
       document.getElementById(nuovaSchermata).style.display = "block";
       currentScreen = nuovaSchermata;
       history.pushState({screen: nuovaSchermata}, "", "");
+      createParticles();
+  
+  // Coriandoli solo per i finali
+  if (nuovaSchermata === "risultato-1a" || nuovaSchermata === "risultato-2a") {
+    createConfetti();
+      }
     }
+    function playSound() {
+  let sound = document.getElementById('clickSound');
+  sound.currentTime = 0;
+  sound.play();
+}
 
+// Crea particelle di sfondo
+function createParticles() {
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      let particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 3 + 's';
+      particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      document.body.appendChild(particle);
+      
+      setTimeout(() => particle.remove(), 10000);
+    }, i * 100);
+  }
+}
+
+// Crea coriandoli per i finali
+function createConfetti() {
+  const colors = ['#ff6b9d', '#c44569', '#f8b500', '#00d2ff', '#3742fa', '#2ed573'];
+  
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      let confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.width = (Math.random() * 10 + 5) + 'px';
+      confetti.style.height = (Math.random() * 10 + 5) + 'px';
+      confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+      document.body.appendChild(confetti);
+      
+      setTimeout(() => confetti.remove(), 4000);
+    }, i * 30);
+  }
+}
     // LIVELLO 1
     function scelta1() {
       mostraSchermata("risultato-1");
@@ -262,6 +363,7 @@
 
     // Imposta lo stato iniziale
     history.replaceState({screen: "schermata-iniziale"}, "", "");
+    createParticles();
   </script>
 
 </body>
